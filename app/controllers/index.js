@@ -1,1 +1,2 @@
+alert("Hola");
 $.index.open();

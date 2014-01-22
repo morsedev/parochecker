@@ -1,2 +1,5 @@
-alert("Hola");
+function alerta(){
+	alert("Mensaje");
+}
+
 $.index.open();

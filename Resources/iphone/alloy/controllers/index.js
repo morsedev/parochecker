@@ -1,6 +1,37 @@
 function Controller() {
-    function alerta() {
-        alert("Mensaje");
+    function volver() {
+        $.index.open();
+        $.preg.hide();
+    }
+    function botonClick() {
+        var url = "https://ws054.juntadeandalucia.es/autenticacion/login?btn=2";
+        var client = Ti.Network.createHTTPClient({
+            onload: function() {
+                codigoHtml = this.responseText;
+                alert("exito");
+            },
+            onerror: function(e) {
+                Ti.API.debug(e.error);
+                alert("error");
+            },
+            timeout: 5e3
+        });
+        client.onreadystatechange = function() {};
+        client.open("GET", url);
+        client.send();
+    }
+    function cortarCodigo() {
+        if (null !== codigoHtml || "" !== codigoHtml) {
+            codigoCortado = codigoHtml.substring(codigoHtml.indexOf('<label for="codigoPregunta" class="text_topic">'), codigoHtml.indexOf('<div id="form-3-cols-right">'));
+            Ti.API.info("Indices substring: " + codigoHtml.indexOf('<label for="codigoPregunta" class="text_topic">') + ", " + codigoHtml.indexOf('<div id="form-3-cols-right">'));
+            codigoCortado = codigoCortado.substring(codigoCortado.indexOf("<p>") + 3, codigoCortado.indexOf('name="keyQuestion"'));
+            $.pregunta.text = codigoCortado;
+            abrirVentana();
+        }
+    }
+    function abrirVentana() {
+        $.preg.open();
+        $.preg.show();
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "index";
@@ -10,90 +41,103 @@ function Controller() {
     var $ = this;
     var exports = {};
     var __defers = {};
-    var __alloyId0 = [];
-    $.__views.__alloyId2 = Ti.UI.createWindow({
-        backgroundColor: "#fff",
+    $.__views.index = Ti.UI.createWindow({
+        backgroundColor: "#000",
+        layout: "vertical",
         title: "Tab 1",
-        id: "__alloyId2"
-    });
-    $.__views.__alloyId3 = Ti.UI.createTableViewRow({
-        id: "__alloyId3"
-    });
-    $.__views.__alloyId2.add($.__views.__alloyId3);
-    $.__views.__alloyId4 = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
-        height: Ti.UI.SIZE,
-        color: "#000",
-        font: {
-            fontSize: 20,
-            fontFamily: "Helvetica Neue"
-        },
-        textAlign: "center",
-        text: "I am Window 1",
-        id: "__alloyId4"
-    });
-    $.__views.__alloyId3.add($.__views.__alloyId4);
-    alerta ? $.__views.__alloyId4.addEventListener("click", alerta) : __defers["$.__views.__alloyId4!click!alerta"] = true;
-    $.__views.__alloyId5 = Ti.UI.createTableViewRow({
-        id: "__alloyId5"
-    });
-    $.__views.__alloyId2.add($.__views.__alloyId5);
-    $.__views.__alloyId6 = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
-        height: Ti.UI.SIZE,
-        color: "#000",
-        font: {
-            fontSize: 20,
-            fontFamily: "Helvetica Neue"
-        },
-        textAlign: "center",
-        text: "I am Label 1",
-        id: "__alloyId6"
-    });
-    $.__views.__alloyId5.add($.__views.__alloyId6);
-    alerta ? $.__views.__alloyId6.addEventListener("click", alerta) : __defers["$.__views.__alloyId6!click!alerta"] = true;
-    $.__views.__alloyId1 = Ti.UI.createTab({
-        window: $.__views.__alloyId2,
-        title: "Tab 1",
-        icon: "KS_nav_ui.png",
-        id: "__alloyId1"
-    });
-    __alloyId0.push($.__views.__alloyId1);
-    $.__views.__alloyId8 = Ti.UI.createWindow({
-        backgroundColor: "#fff",
-        title: "Tab 2",
-        id: "__alloyId8"
-    });
-    $.__views.__alloyId9 = Ti.UI.createLabel({
-        width: Ti.UI.SIZE,
-        height: Ti.UI.SIZE,
-        color: "#000",
-        font: {
-            fontSize: 20,
-            fontFamily: "Helvetica Neue"
-        },
-        textAlign: "center",
-        text: "I am Window 2",
-        id: "__alloyId9"
-    });
-    $.__views.__alloyId8.add($.__views.__alloyId9);
-    $.__views.__alloyId7 = Ti.UI.createTab({
-        window: $.__views.__alloyId8,
-        title: "Tab 2",
-        icon: "KS_nav_views.png",
-        id: "__alloyId7"
-    });
-    __alloyId0.push($.__views.__alloyId7);
-    $.__views.index = Ti.UI.createTabGroup({
-        tabs: __alloyId0,
         id: "index"
     });
     $.__views.index && $.addTopLevelView($.__views.index);
+    var __alloyId0 = [];
+    $.__views.__alloyId1 = Ti.UI.createTableViewRow({
+        id: "__alloyId1"
+    });
+    __alloyId0.push($.__views.__alloyId1);
+    $.__views.__alloyId2 = Ti.UI.createButton({
+        title: "Recupera Codigo Html",
+        id: "__alloyId2"
+    });
+    $.__views.__alloyId1.add($.__views.__alloyId2);
+    botonClick ? $.__views.__alloyId2.addEventListener("click", botonClick) : __defers["$.__views.__alloyId2!click!botonClick"] = true;
+    $.__views.__alloyId3 = Ti.UI.createTableViewRow({
+        id: "__alloyId3"
+    });
+    __alloyId0.push($.__views.__alloyId3);
+    $.__views.spin = Ti.UI.createImageView({
+        id: "spin"
+    });
+    $.__views.__alloyId3.add($.__views.spin);
+    $.__views.__alloyId4 = Ti.UI.createButton({
+        title: "Cortar Código",
+        id: "__alloyId4"
+    });
+    $.__views.__alloyId3.add($.__views.__alloyId4);
+    cortarCodigo ? $.__views.__alloyId4.addEventListener("click", cortarCodigo) : __defers["$.__views.__alloyId4!click!cortarCodigo"] = true;
+    $.__views.tabla = Ti.UI.createTableView({
+        data: __alloyId0,
+        id: "tabla"
+    });
+    $.__views.index.add($.__views.tabla);
+    $.__views.preg = Ti.UI.createWindow({
+        backgroundColor: "#000",
+        layout: "vertical",
+        title: "Pregunta",
+        id: "preg"
+    });
+    $.__views.preg && $.addTopLevelView($.__views.preg);
+    $.__views.__alloyId5 = Ti.UI.createButton({
+        title: "Volver",
+        id: "__alloyId5"
+    });
+    $.__views.preg.add($.__views.__alloyId5);
+    volver ? $.__views.__alloyId5.addEventListener("click", volver) : __defers["$.__views.__alloyId5!click!volver"] = true;
+    $.__views.pregunta = Ti.UI.createLabel({
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        color: "white",
+        font: {
+            fontSize: 20,
+            fontFamily: "Helvetica Neue",
+            color: "black"
+        },
+        textAlign: "center",
+        id: "pregunta"
+    });
+    $.__views.preg.add($.__views.pregunta);
+    $.__views.respuesta = Ti.UI.createTextField({
+        size: Ti.UI.SIZE,
+        width: "200px",
+        height: Ti.UI.SIZE,
+        backgroundColor: "white",
+        font: {
+            fontSize: 20,
+            color: "black"
+        },
+        textAlign: "center",
+        id: "respuesta"
+    });
+    $.__views.preg.add($.__views.respuesta);
+    $.__views.valor = Ti.UI.createLabel({
+        width: Ti.UI.SIZE,
+        height: Ti.UI.SIZE,
+        color: "white",
+        font: {
+            fontSize: 20,
+            fontFamily: "Helvetica Neue",
+            color: "black"
+        },
+        textAlign: "center",
+        id: "valor"
+    });
+    $.__views.preg.add($.__views.valor);
     exports.destroy = function() {};
     _.extend($, $.__views);
+    var codigoHtml;
+    var codigoCortado;
     $.index.open();
-    __defers["$.__views.__alloyId4!click!alerta"] && $.__views.__alloyId4.addEventListener("click", alerta);
-    __defers["$.__views.__alloyId6!click!alerta"] && $.__views.__alloyId6.addEventListener("click", alerta);
+    __defers["$.__views.__alloyId2!click!botonClick"] && $.__views.__alloyId2.addEventListener("click", botonClick);
+    __defers["$.__views.__alloyId4!click!cortarCodigo"] && $.__views.__alloyId4.addEventListener("click", cortarCodigo);
+    __defers["$.__views.__alloyId5!click!volver"] && $.__views.__alloyId5.addEventListener("click", volver);
     _.extend($, exports);
 }
 

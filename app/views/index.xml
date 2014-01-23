@@ -1,21 +1,20 @@
 <Alloy>
-	<TabGroup>
-		<Tab title="Tab 1" icon="KS_nav_ui.png">
-			<Window title="Tab 1">
-				<TableViewRow>
-					<Label onClick="alerta">I am Window 1</Label>
-				</TableViewRow>
-				<TableViewRow>
-					<Label onClick="alerta">I am Label 1</Label>
-				</TableViewRow>
-				
-				
-			</Window>
-		</Tab>
-		<Tab title="Tab 2" icon="KS_nav_views.png">
-			<Window title="Tab 2">
-				<Label>I am Window 2</Label>
-			</Window>
-		</Tab>
-	</TabGroup>
+	<Window title="Tab 1">
+		<TableView id="tabla">
+			<TableViewRow>
+				<Button title="Recupera Codigo Html" onClick="botonClick"></Button>
+			</TableViewRow>-->
+			<TableViewRow>
+				<ImageView id="spin"></ImageView>
+				<Button title="Cortar Código" onClick="cortarCodigo"></Button>
+			</TableViewRow>
+		</TableView>
+	</Window>
+	<Window title="Pregunta" id="preg">
+
+		<Button onClick="volver">Volver</Button>
+		<Label id="pregunta"></Label>
+		<TextField id="respuesta"></TextField>
+		<Label id="valor"></Label>
+	</Window>
 </Alloy>

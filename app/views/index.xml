@@ -1,14 +1,13 @@
 <Alloy>
+	<iPhone>
+		<NavigationWindow>
+			<Window>
+				<Require type="view" src="tableview"></Require>
+			</Window>
+		</NavigationWindow>
+	</iPhone>
 	<Window title="Tab 1">
-		<TableView id="tabla">
-			<TableViewRow>
-				<Button title="Recupera Codigo Html" onClick="botonClick"></Button>
-			</TableViewRow>-->
-			<TableViewRow>
-				<ImageView id="spin"></ImageView>
-				<Button title="Cortar Código" onClick="cortarCodigo"></Button>
-			</TableViewRow>
-		</TableView>
+		<Require type="view" src="tableview"></Require>
 	</Window>
 	<Window title="Pregunta" id="preg">
 

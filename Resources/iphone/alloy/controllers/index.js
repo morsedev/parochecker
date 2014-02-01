@@ -3,36 +3,6 @@ function Controller() {
         $.index.open();
         $.preg.hide();
     }
-    function botonClick() {
-        var url = "https://ws054.juntadeandalucia.es/autenticacion/login?btn=2";
-        var client = Ti.Network.createHTTPClient({
-            onload: function() {
-                codigoHtml = this.responseText;
-                alert("exito");
-            },
-            onerror: function(e) {
-                Ti.API.debug(e.error);
-                alert("error");
-            },
-            timeout: 5e3
-        });
-        client.onreadystatechange = function() {};
-        client.open("GET", url);
-        client.send();
-    }
-    function cortarCodigo() {
-        if (null !== codigoHtml || "" !== codigoHtml) {
-            codigoCortado = codigoHtml.substring(codigoHtml.indexOf('<label for="codigoPregunta" class="text_topic">'), codigoHtml.indexOf('<div id="form-3-cols-right">'));
-            Ti.API.info("Indices substring: " + codigoHtml.indexOf('<label for="codigoPregunta" class="text_topic">') + ", " + codigoHtml.indexOf('<div id="form-3-cols-right">'));
-            codigoCortado = codigoCortado.substring(codigoCortado.indexOf("<p>") + 3, codigoCortado.indexOf('name="keyQuestion"'));
-            $.pregunta.text = codigoCortado;
-            abrirVentana();
-        }
-    }
-    function abrirVentana() {
-        $.preg.open();
-        $.preg.show();
-    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "index";
     arguments[0] ? arguments[0]["__parentSymbol"] : null;
@@ -41,43 +11,37 @@ function Controller() {
     var $ = this;
     var exports = {};
     var __defers = {};
-    $.__views.index = Ti.UI.createWindow({
-        backgroundColor: "#000",
-        layout: "vertical",
-        title: "Tab 1",
+    $.__views.index = Ti.UI.createiPhone({
         id: "index"
     });
     $.__views.index && $.addTopLevelView($.__views.index);
-    var __alloyId0 = [];
-    $.__views.__alloyId1 = Ti.UI.createTableViewRow({
+    $.__views.__alloyId1 = Ti.UI.createWindow({
+        backgroundColor: "#000",
+        layout: "vertical",
         id: "__alloyId1"
     });
-    __alloyId0.push($.__views.__alloyId1);
-    $.__views.__alloyId2 = Ti.UI.createButton({
-        title: "Recupera Codigo Html",
-        id: "__alloyId2"
+    $.__views.__alloyId2 = Alloy.createController("tableview", {
+        id: "__alloyId2",
+        __parentSymbol: $.__views.__alloyId1
     });
-    $.__views.__alloyId1.add($.__views.__alloyId2);
-    botonClick ? $.__views.__alloyId2.addEventListener("click", botonClick) : __defers["$.__views.__alloyId2!click!botonClick"] = true;
-    $.__views.__alloyId3 = Ti.UI.createTableViewRow({
+    $.__views.__alloyId2.setParent($.__views.__alloyId1);
+    $.__views.__alloyId0 = Ti.UI.iOS.createNavigationWindow({
+        window: $.__views.__alloyId1,
+        id: "__alloyId0"
+    });
+    $.__views.index.add($.__views.__alloyId0);
+    $.__views.__alloyId3 = Ti.UI.createWindow({
+        backgroundColor: "#000",
+        layout: "vertical",
+        title: "Tab 1",
         id: "__alloyId3"
     });
-    __alloyId0.push($.__views.__alloyId3);
-    $.__views.spin = Ti.UI.createImageView({
-        id: "spin"
+    $.__views.__alloyId3 && $.addTopLevelView($.__views.__alloyId3);
+    $.__views.__alloyId4 = Alloy.createController("tableview", {
+        id: "__alloyId4",
+        __parentSymbol: $.__views.__alloyId3
     });
-    $.__views.__alloyId3.add($.__views.spin);
-    $.__views.__alloyId4 = Ti.UI.createButton({
-        title: "Cortar Código",
-        id: "__alloyId4"
-    });
-    $.__views.__alloyId3.add($.__views.__alloyId4);
-    cortarCodigo ? $.__views.__alloyId4.addEventListener("click", cortarCodigo) : __defers["$.__views.__alloyId4!click!cortarCodigo"] = true;
-    $.__views.tabla = Ti.UI.createTableView({
-        data: __alloyId0,
-        id: "tabla"
-    });
-    $.__views.index.add($.__views.tabla);
+    $.__views.__alloyId4.setParent($.__views.__alloyId3);
     $.__views.preg = Ti.UI.createWindow({
         backgroundColor: "#000",
         layout: "vertical",
@@ -132,11 +96,7 @@ function Controller() {
     $.__views.preg.add($.__views.valor);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    var codigoHtml;
-    var codigoCortado;
     $.index.open();
-    __defers["$.__views.__alloyId2!click!botonClick"] && $.__views.__alloyId2.addEventListener("click", botonClick);
-    __defers["$.__views.__alloyId4!click!cortarCodigo"] && $.__views.__alloyId4.addEventListener("click", cortarCodigo);
     __defers["$.__views.__alloyId5!click!volver"] && $.__views.__alloyId5.addEventListener("click", volver);
     _.extend($, exports);
 }

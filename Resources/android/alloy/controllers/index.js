@@ -32,7 +32,6 @@ function Controller() {
     doClick ? $.__views.logo.addEventListener("click", doClick) : __defers["$.__views.logo!click!doClick"] = true;
     exports.destroy = function() {};
     _.extend($, $.__views);
-    alert("Hola Lupi");
     $.index.navBarHidden = true;
     $.index.open();
     __defers["$.__views.index!open!doClick"] && $.__views.index.addEventListener("open", doClick);

@@ -1,7 +1,7 @@
 <Alloy>
 	<Window id="listaUsuarios" layout="vertical">
 		<View id="header" layout="horizontal">
-			<Button>Atras</Button>
+			<Button onClick="doBack">Atras</Button>
 			<Label id="title" textAlign="center">Usuarios</Label>
 			<View class="divider"/>
 			<View id="addView">

@@ -1,4 +1,9 @@
 function Controller() {
+    function doBack() {
+        var loginView = Alloy.createController("login").getView();
+        loginView.navBarHidden = true;
+        loginView.open();
+    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "listaUsuarios";
     arguments[0] ? arguments[0]["__parentSymbol"] : null;
@@ -6,6 +11,7 @@ function Controller() {
     arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
+    var __defers = {};
     $.__views.listaUsuarios = Ti.UI.createWindow({
         id: "listaUsuarios",
         layout: "vertical"
@@ -42,6 +48,7 @@ function Controller() {
         id: "__alloyId0"
     });
     $.__views.header.add($.__views.__alloyId0);
+    doBack ? $.__views.__alloyId0.addEventListener("click", doBack) : __defers["$.__views.__alloyId0!click!doBack"] = true;
     $.__views.title = Ti.UI.createLabel({
         verticalAlign: "auto",
         text: "Usuarios",
@@ -96,6 +103,7 @@ function Controller() {
     exports.destroy = function() {};
     _.extend($, $.__views);
     arguments[0] || {};
+    __defers["$.__views.__alloyId0!click!doBack"] && $.__views.__alloyId0.addEventListener("click", doBack);
     _.extend($, exports);
 }
 

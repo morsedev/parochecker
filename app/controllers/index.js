@@ -25,6 +25,6 @@ function doClick(e) {
     
 }
 
-//$.loginView.open();
 $.index.navBarHidden = true;
+
 $.index.open();

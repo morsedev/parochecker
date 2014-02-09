@@ -16,7 +16,4 @@
 			<Label color="white">*SAE= Servicio Andaluz de Empleo</Label>
 		</View>
 	</Window>
-	<!--<Window id="listaUsuarios">
-	<Require src="listaUsuarios"></Require>
-	</Window>-->
 </Alloy>

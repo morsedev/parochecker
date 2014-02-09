@@ -22,6 +22,7 @@ function Controller() {
         id: "index"
     });
     $.__views.index && $.addTopLevelView($.__views.index);
+    doClick ? $.__views.index.addEventListener("open", doClick) : __defers["$.__views.index!open!doClick"] = true;
     $.__views.logo = Ti.UI.createImageView({
         width: 150,
         image: "/logo.png",
@@ -31,8 +32,10 @@ function Controller() {
     doClick ? $.__views.logo.addEventListener("click", doClick) : __defers["$.__views.logo!click!doClick"] = true;
     exports.destroy = function() {};
     _.extend($, $.__views);
+    alert("Hola Lupi");
     $.index.navBarHidden = true;
     $.index.open();
+    __defers["$.__views.index!open!doClick"] && $.__views.index.addEventListener("open", doClick);
     __defers["$.__views.logo!click!doClick"] && $.__views.logo.addEventListener("click", doClick);
     _.extend($, exports);
 }

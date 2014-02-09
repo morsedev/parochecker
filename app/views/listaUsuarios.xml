@@ -16,19 +16,5 @@
 				</TableViewRow>
 			</TableView>
 		</View>
-		<!--<TableView id="lista" layout="vertical">
-		<TableViewRow>
-		<Label>Texto</Label>
-		</TableViewRow>
-		<TableViewRow>
-		<Label>Texto</Label>
-		</TableViewRow>
-		<TableViewRow>
-		<Label>Texto</Label>
-		</TableViewRow>
-		<TableViewRow>
-		<Label>Texto</Label>
-		</TableViewRow>
-		</TableView>-->
 	</Window>
 </Alloy>

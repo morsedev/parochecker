@@ -1,5 +1,5 @@
 <Alloy>
-	<Window class="container">
+	<Window class="container" onOpen="doClick">
 		<ImageView image="/logo.png" id="logo" onClick="doClick">
 			Imagen
 		</ImageView>

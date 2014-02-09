@@ -3,7 +3,11 @@ function Controller() {
         var network = Titanium.Network;
         var line = network.getOnline();
         Ti.API;
-        "1" == line ? Alloy.createController("login").getView().open() : alert("No hay conexión a internet");
+        if ("1" == line) {
+            var loginView = Alloy.createController("login").getView();
+            loginView.navBarHidden = true;
+            loginView.open();
+        } else alert("No hay conexión a internet");
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "index";
@@ -19,14 +23,15 @@ function Controller() {
     });
     $.__views.index && $.addTopLevelView($.__views.index);
     $.__views.logo = Ti.UI.createImageView({
-        width: 200,
-        image: "logo.png",
+        width: 150,
+        image: "/logo.png",
         id: "logo"
     });
     $.__views.index.add($.__views.logo);
     doClick ? $.__views.logo.addEventListener("click", doClick) : __defers["$.__views.logo!click!doClick"] = true;
     exports.destroy = function() {};
     _.extend($, $.__views);
+    $.index.navBarHidden = true;
     $.index.open();
     __defers["$.__views.logo!click!doClick"] && $.__views.logo.addEventListener("click", doClick);
     _.extend($, exports);

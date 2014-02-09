@@ -1,4 +1,6 @@
 var args = arguments[0] || {};
 function listarUsuarios(){
-	Alloy.createController("listaUsuarios").getView().open();;
+	var listaUsuarios = Alloy.createController("listaUsuarios").getView();
+	listaUsuarios.navBarHidden = true;
+	listaUsuarios.open();
 }

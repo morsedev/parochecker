@@ -1,7 +1,7 @@
 <Alloy>
 	<Window id="loginView">
 		<View class="container" layout="vertical">
-			<ImageView image="logo.png" id="logo"></ImageView>
+			<ImageView image="/logo.png" id="logo"></ImageView>
 			<Label class="loginLabel">Usuario SAE*</Label>
 			<TextField class="loginTextField"></TextField>
 			<Label></Label>>

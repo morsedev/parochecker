@@ -15,7 +15,9 @@ function doClick(e) {
         
     if(line == '1'){
     	//alert("Hay conexión a internet");
-    	Alloy.createController("login").getView().open();
+    	var loginView = Alloy.createController("login").getView();
+    	loginView.navBarHidden = true;
+    	loginView.open();
     	//loginAlert();
     }else{
     	alert("No hay conexión a internet");
@@ -24,5 +26,5 @@ function doClick(e) {
 }
 
 //$.loginView.open();
-
+$.index.navBarHidden = true;
 $.index.open();

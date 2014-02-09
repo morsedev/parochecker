@@ -1,6 +1,8 @@
 <Alloy>
 	<Window class="container">
-		<ImageView image="logo.png" id="logo" onClick="doClick"></ImageView>
+		<ImageView image="/logo.png" id="logo" onClick="doClick">
+			Imagen
+		</ImageView>
 	</Window>
 	<!--<Window id="loginView">
 		<Require src="login"></Require>

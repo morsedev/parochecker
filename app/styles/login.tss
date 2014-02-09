@@ -1,0 +1,28 @@
+
+".container" : {
+  backgroundColor: "#1176d2"
+},
+
+"#logo":{
+	width: 200,
+} ,
+
+".loginLabel":{
+	color: "white"
+},
+
+".loginTextField":{
+	width: 300,
+	backgroundColor: "white",
+	height: 40,
+	color: "#1176d2",
+	paddingLeft: 10,
+	paddingRight: 10		
+},
+
+"#loginButton":{
+	backgroundColor: "#381775",
+	width: 200,
+	height: 40,
+	color: "white"
+}

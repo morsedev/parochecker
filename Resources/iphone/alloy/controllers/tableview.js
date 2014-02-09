@@ -1,4 +1,30 @@
 function Controller() {
+    function botonClick() {
+        var url = "https://ws054.juntadeandalucia.es/autenticacion/login?btn=2";
+        var client = Ti.Network.createHTTPClient({
+            onload: function() {
+                codigoHtml = this.responseText;
+                alert("exito");
+            },
+            onerror: function(e) {
+                Ti.API.debug(e.error);
+                alert("error");
+            },
+            timeout: 5e3
+        });
+        client.onreadystatechange = function() {};
+        client.open("GET", url);
+        client.send();
+    }
+    function cortarCodigo() {
+        if (null !== codigoHtml || "" !== codigoHtml) {
+            codigoCortado = codigoHtml.substring(codigoHtml.indexOf('<label for="codigoPregunta" class="text_topic">'), codigoHtml.indexOf('<div id="form-3-cols-right">'));
+            Ti.API.info("Indices substring: " + codigoHtml.indexOf('<label for="codigoPregunta" class="text_topic">') + ", " + codigoHtml.indexOf('<div id="form-3-cols-right">'));
+            codigoCortado = codigoCortado.substring(codigoCortado.indexOf("<p>") + 3, codigoCortado.indexOf('name="keyQuestion"'));
+            $.pregunta.text = codigoCortado;
+            abrirVentana();
+        }
+    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "tableview";
     arguments[0] ? arguments[0]["__parentSymbol"] : null;
@@ -7,40 +33,41 @@ function Controller() {
     var $ = this;
     var exports = {};
     var __defers = {};
-    var __alloyId6 = [];
-    $.__views.__alloyId7 = Ti.UI.createTableViewRow({
-        id: "__alloyId7"
+    var __alloyId11 = [];
+    $.__views.__alloyId12 = Ti.UI.createTableViewRow({
+        id: "__alloyId12"
     });
-    __alloyId6.push($.__views.__alloyId7);
-    $.__views.__alloyId8 = Ti.UI.createButton({
+    __alloyId11.push($.__views.__alloyId12);
+    $.__views.__alloyId13 = Ti.UI.createButton({
         title: "Recupera Codigo Html",
-        id: "__alloyId8"
+        id: "__alloyId13"
     });
-    $.__views.__alloyId7.add($.__views.__alloyId8);
-    botonClick ? $.__views.__alloyId8.addEventListener("click", botonClick) : __defers["$.__views.__alloyId8!click!botonClick"] = true;
-    $.__views.__alloyId9 = Ti.UI.createTableViewRow({
-        id: "__alloyId9"
+    $.__views.__alloyId12.add($.__views.__alloyId13);
+    botonClick ? $.__views.__alloyId13.addEventListener("click", botonClick) : __defers["$.__views.__alloyId13!click!botonClick"] = true;
+    $.__views.__alloyId14 = Ti.UI.createTableViewRow({
+        id: "__alloyId14"
     });
-    __alloyId6.push($.__views.__alloyId9);
+    __alloyId11.push($.__views.__alloyId14);
     $.__views.spin = Ti.UI.createImageView({
         id: "spin"
     });
-    $.__views.__alloyId9.add($.__views.spin);
-    $.__views.__alloyId10 = Ti.UI.createButton({
+    $.__views.__alloyId14.add($.__views.spin);
+    $.__views.__alloyId15 = Ti.UI.createButton({
         title: "Cortar Código",
-        id: "__alloyId10"
+        id: "__alloyId15"
     });
-    $.__views.__alloyId9.add($.__views.__alloyId10);
-    cortarCodigo ? $.__views.__alloyId10.addEventListener("click", cortarCodigo) : __defers["$.__views.__alloyId10!click!cortarCodigo"] = true;
+    $.__views.__alloyId14.add($.__views.__alloyId15);
+    cortarCodigo ? $.__views.__alloyId15.addEventListener("click", cortarCodigo) : __defers["$.__views.__alloyId15!click!cortarCodigo"] = true;
     $.__views.tabla = Ti.UI.createTableView({
-        data: __alloyId6,
+        data: __alloyId11,
         id: "tabla"
     });
     $.__views.tabla && $.addTopLevelView($.__views.tabla);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    __defers["$.__views.__alloyId8!click!botonClick"] && $.__views.__alloyId8.addEventListener("click", botonClick);
-    __defers["$.__views.__alloyId10!click!cortarCodigo"] && $.__views.__alloyId10.addEventListener("click", cortarCodigo);
+    arguments[0] || {};
+    __defers["$.__views.__alloyId13!click!botonClick"] && $.__views.__alloyId13.addEventListener("click", botonClick);
+    __defers["$.__views.__alloyId15!click!cortarCodigo"] && $.__views.__alloyId15.addEventListener("click", cortarCodigo);
     _.extend($, exports);
 }
 

@@ -1,0 +1,25 @@
+<Alloy>
+	<Window id="listaUsuarios">
+		<View id="header">
+			<Label id="title">Alloy Todo</Label>
+			<View class="divider"/>
+			<View id="addView">
+				<ImageView id="addImage"/>
+			</View>
+		</View>
+		<TableView id="lista" layout="vertical">
+			<TableViewRow>
+				<Label>Texto</Label>
+			</TableViewRow>
+			<TableViewRow>
+				<Label>Texto</Label>
+			</TableViewRow>
+			<TableViewRow>
+				<Label>Texto</Label>
+			</TableViewRow>
+			<TableViewRow>
+				<Label>Texto</Label>
+			</TableViewRow>
+		</TableView>
+	</Window>
+</Alloy>

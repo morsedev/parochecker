@@ -1,0 +1,22 @@
+<Alloy>
+	<Window id="loginView">
+		<View class="container" layout="vertical">
+			<ImageView image="logo.png" id="logo"></ImageView>
+			<Label class="loginLabel">Usuario SAE*</Label>
+			<TextField class="loginTextField"></TextField>
+			<Label></Label>>
+			<Label class="loginLabel">Contraseña SAE*</Label>
+			<TextField class="loginTextField"></TextField>
+			<Label></Label>
+			<Label class="loginLabel">Email</Label>
+			<TextField class="loginTextField"></TextField>
+			<Label></Label>
+			<Button id="loginButton" onClick="listarUsuarios">Guardar</Button>
+			<Label></Label>
+			<Label color="white">*SAE= Servicio Andaluz de Empleo</Label>
+		</View>
+	</Window>
+	<!--<Window id="listaUsuarios">
+	<Require src="listaUsuarios"></Require>
+	</Window>-->
+</Alloy>

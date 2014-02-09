@@ -1,19 +1,8 @@
 <Alloy>
-	<iPhone>
-		<NavigationWindow>
-			<Window>
-				<Require type="view" src="tableview"></Require>
-			</Window>
-		</NavigationWindow>
-	</iPhone>
-	<Window title="Tab 1">
-		<Require type="view" src="tableview"></Require>
+	<Window class="container">
+		<ImageView image="logo.png" id="logo" onClick="doClick"></ImageView>
 	</Window>
-	<Window title="Pregunta" id="preg">
-
-		<Button onClick="volver">Volver</Button>
-		<Label id="pregunta"></Label>
-		<TextField id="respuesta"></TextField>
-		<Label id="valor"></Label>
-	</Window>
+	<!--<Window id="loginView">
+		<Require src="login"></Require>
+</Window>-->
 </Alloy>

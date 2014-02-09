@@ -1,27 +1,12 @@
-"Window": {
-	backgroundColor: "#000",
-	layout: "vertical"
+".container": {
+	backgroundColor:"#1176d2"
 },
-"Label": {	
+"Label": {
 	width: Ti.UI.SIZE,
 	height: Ti.UI.SIZE,
-	color: "white",
-	font: {
-		fontSize: 20,
-		fontFamily: 'Helvetica Neue',
-		color: "black"
-		
-	},
-	textAlign: 'center'
+	color: "#000"
 },
-"TextField": {
-	size: Ti.UI.SIZE,
-	width: "200px",
-	height: Ti.UI.SIZE,
-	backgroundColor: "white",
-	font: {
-		fontSize: 20,
-		color: "black"
-	},
-	textAlign: "center"
-}
+
+"#logo":{
+	width: 200,
+} 

@@ -1,63 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
-    <id>com.testgit</id>
-    <name>testgit</name>
-    <version>1.0</version>
-    <publisher>gaby</publisher>
-    <url>http://testgit</url>
-    <description>not specified</description>
-    <copyright>2014 by gaby</copyright>
-    <icon>appicon.png</icon>
-    <fullscreen>false</fullscreen>
-    <navbar-hidden>false</navbar-hidden>
-    <analytics>true</analytics>
-    <guid>7ddfff54-bb6d-4f84-a846-925f0612f734</guid>
-    <property name="ti.ui.defaultunit" type="string">dp</property>
-    <ios>
-        <plist>
-            <dict>
-                <key>UISupportedInterfaceOrientations~iphone</key>
-                <array>
-                    <string>UIInterfaceOrientationPortrait</string>
-                </array>
-                <key>UISupportedInterfaceOrientations~ipad</key>
-                <array>
-                    <string>UIInterfaceOrientationPortrait</string>
-                    <string>UIInterfaceOrientationPortraitUpsideDown</string>
-                    <string>UIInterfaceOrientationLandscapeLeft</string>
-                    <string>UIInterfaceOrientationLandscapeRight</string>
-                </array>
-                <key>UIRequiresPersistentWiFi</key>
-                <false/>
-                <key>UIPrerenderedIcon</key>
-                <false/>
-                <key>UIStatusBarHidden</key>
-                <false/>
-                <key>UIStatusBarStyle</key>
-                <string>UIStatusBarStyleDefault</string>
-            </dict>
-        </plist>
-    </ios>
-    <android xmlns:android="http://schemas.android.com/apk/res/android"/>
-    <mobileweb>
-        <precache/>
-        <splash>
-            <enabled>true</enabled>
-            <inline-css-images>true</inline-css-images>
-        </splash>
-        <theme>default</theme>
-    </mobileweb>
-    <modules/>
-    <deployment-targets>
-        <target device="android">true</target>
-        <target device="blackberry">false</target>
-        <target device="ipad">true</target>
-        <target device="iphone">true</target>
-        <target device="mobileweb">true</target>
-        <target device="tizen">true</target>
-    </deployment-targets>
-    <sdk-version>3.2.0.GA</sdk-version>
-    <plugins>
-        <plugin version="1.0">ti.alloy</plugin>
-    </plugins>
+	<id>com.morsedev.sellarparoandalucia</id>
+	<name>SellarParo</name>
+	<version>1.0</version>
+	<publisher>gaby</publisher>
+	<url>http://www.morsedev.com/sellar-paro/</url>
+	<description>not specified</description>
+	<copyright>2014 by gaby</copyright>
+	<icon>icono.png</icon>
+	<fullscreen>false</fullscreen>
+	<navbar-hidden>false</navbar-hidden>
+	<analytics>true</analytics>
+	<guid>639f4db4-5188-4074-b76d-8ac9e8316726</guid>
+	<property name="ti.ui.defaultunit" type="string">dp</property>
+	<ios>
+		<plist>
+			<dict>
+				<key>UISupportedInterfaceOrientations~iphone</key>
+				<array>
+					<string>UIInterfaceOrientationPortrait</string>
+				</array>
+				<key>UISupportedInterfaceOrientations~ipad</key>
+				<array>
+					<string>UIInterfaceOrientationPortrait</string>
+					<string>UIInterfaceOrientationPortraitUpsideDown</string>
+					<string>UIInterfaceOrientationLandscapeLeft</string>
+					<string>UIInterfaceOrientationLandscapeRight</string>
+				</array>
+				<key>UIRequiresPersistentWiFi</key>
+				<false/>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+				<key>UIStatusBarHidden</key>
+				<false/>
+				<key>UIStatusBarStyle</key>
+				<string>UIStatusBarStyleDefault</string>
+			</dict>
+		</plist>
+	</ios>
+	<android xmlns:android="http://schemas.android.com/apk/res/android">
+		<manifest>
+            <supports-screens android:anyDensity="true"/>
+            <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="16"/>
+            <!--<application android:theme="@style/Theme.Holo.Light"/>-->
+        </manifest>
+	</android>
+	<mobileweb>
+		<precache/>
+		<splash>
+			<enabled>true</enabled>
+			<inline-css-images>true</inline-css-images>
+		</splash>
+		<theme>default</theme>
+	</mobileweb>
+	<modules/>
+	<deployment-targets>
+		<target device="android">true</target>
+		<target device="blackberry">false</target>
+		<target device="ipad">false</target>
+		<target device="iphone">true</target>
+		<target device="mobileweb">false</target>
+		<target device="tizen">false</target>
+	</deployment-targets>
+	<sdk-version>3.2.0.GA</sdk-version>
+	<plugins>
+		<plugin version="1.0">ti.alloy</plugin>
+	</plugins>
 </ti:app>

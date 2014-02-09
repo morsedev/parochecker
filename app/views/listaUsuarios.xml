@@ -1,7 +1,7 @@
 <Alloy>
 	<Window id="listaUsuarios" layout="vertical">
 		<View id="header">
-			<Label id="title">Alloy Todo</Label>
+			<Label id="title">Usuarios</Label>
 			<View class="divider"/>
 			<View id="addView">
 				<ImageView id="addImage"/>
@@ -9,7 +9,8 @@
 		</View>
 		<View>
 			<TableView id="lista" layout="vertical">
-				<TableViewRow>
+				<TableViewRow layout="horizontal">
+					<ImageView image="/logo.png"></ImageView>
 					<Label>Texto</Label>
 				</TableViewRow>
 				<TableViewRow>

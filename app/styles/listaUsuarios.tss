@@ -12,13 +12,18 @@
 		startPoint: { x: "0%", y:"0%"},
 		endPoint:   { x: "0%", y:"100%"},
 		colors: [
-			{ color: "#a00", offset: 0.0 },
-			{ color: "#800", offset: 1.0 }
+			{ color: "#117", offset: 0.0 },
+			{ color: "#1176d2", offset: 1.0 }
 		]
 	}
 },
 
-"#lista": {
-	top: '60dp',
-	bottom: '46dp'
+"TableViewRow": {
+	height: "50dp"
+},
+
+
+"ImageView": {
+	width: "20dp"
 }
+

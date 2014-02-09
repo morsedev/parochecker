@@ -1,7 +1,8 @@
 <Alloy>
 	<Window id="listaUsuarios" layout="vertical">
-		<View id="header">
-			<Label id="title">Usuarios</Label>
+		<View id="header" layout="horizontal">
+			<Button>Atras</Button>
+			<Label id="title" textAlign="center">Usuarios</Label>
 			<View class="divider"/>
 			<View id="addView">
 				<ImageView id="addImage"/>
@@ -11,15 +12,6 @@
 			<TableView id="lista" layout="vertical">
 				<TableViewRow layout="horizontal">
 					<ImageView image="/logo.png"></ImageView>
-					<Label>Texto</Label>
-				</TableViewRow>
-				<TableViewRow>
-					<Label>Texto</Label>
-				</TableViewRow>
-				<TableViewRow>
-					<Label>Texto</Label>
-				</TableViewRow>
-				<TableViewRow>
 					<Label>Texto</Label>
 				</TableViewRow>
 			</TableView>

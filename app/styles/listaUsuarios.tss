@@ -22,8 +22,13 @@
 	height: "50dp"
 },
 
+"Label":{
+	verticalAlign: "auto",
+},
+
 
 "ImageView": {
-	width: "20dp"
+	width: "40dp",
+	verticalAlign: "auto"
 }
 

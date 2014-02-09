@@ -33,85 +33,66 @@ function Controller() {
                 offset: 1
             } ]
         },
-        id: "header"
+        id: "header",
+        layout: "horizontal"
     });
     $.__views.listaUsuarios.add($.__views.header);
-    $.__views.title = Ti.UI.createLabel({
-        text: "Usuarios",
-        id: "title"
-    });
-    $.__views.header.add($.__views.title);
-    $.__views.__alloyId0 = Ti.UI.createView({
+    $.__views.__alloyId0 = Ti.UI.createButton({
+        title: "Atras",
         id: "__alloyId0"
     });
     $.__views.header.add($.__views.__alloyId0);
+    $.__views.title = Ti.UI.createLabel({
+        verticalAlign: "auto",
+        text: "Usuarios",
+        id: "title",
+        textAlign: "center"
+    });
+    $.__views.header.add($.__views.title);
+    $.__views.__alloyId1 = Ti.UI.createView({
+        id: "__alloyId1"
+    });
+    $.__views.header.add($.__views.__alloyId1);
     $.__views.addView = Ti.UI.createView({
         id: "addView"
     });
     $.__views.header.add($.__views.addView);
     $.__views.addImage = Ti.UI.createImageView({
-        width: "20dp",
+        width: "40dp",
+        verticalAlign: "auto",
         id: "addImage"
     });
     $.__views.addView.add($.__views.addImage);
-    $.__views.__alloyId1 = Ti.UI.createView({
-        id: "__alloyId1"
+    $.__views.__alloyId2 = Ti.UI.createView({
+        id: "__alloyId2"
     });
-    $.__views.listaUsuarios.add($.__views.__alloyId1);
-    var __alloyId2 = [];
-    $.__views.__alloyId3 = Ti.UI.createTableViewRow({
+    $.__views.listaUsuarios.add($.__views.__alloyId2);
+    var __alloyId3 = [];
+    $.__views.__alloyId4 = Ti.UI.createTableViewRow({
         height: "50dp",
         layout: "horizontal",
-        id: "__alloyId3"
-    });
-    __alloyId2.push($.__views.__alloyId3);
-    $.__views.__alloyId4 = Ti.UI.createLabel({
-        text: "Texto",
         id: "__alloyId4"
     });
-    $.__views.__alloyId3.add($.__views.__alloyId4);
+    __alloyId3.push($.__views.__alloyId4);
     $.__views.__alloyId5 = Ti.UI.createImageView({
-        width: "20dp",
+        width: "40dp",
+        verticalAlign: "auto",
         image: "/logo.png",
         id: "__alloyId5"
     });
-    $.__views.__alloyId3.add($.__views.__alloyId5);
-    $.__views.__alloyId6 = Ti.UI.createTableViewRow({
-        height: "50dp",
+    $.__views.__alloyId4.add($.__views.__alloyId5);
+    $.__views.__alloyId6 = Ti.UI.createLabel({
+        verticalAlign: "auto",
+        text: "Texto",
         id: "__alloyId6"
     });
-    __alloyId2.push($.__views.__alloyId6);
-    $.__views.__alloyId7 = Ti.UI.createLabel({
-        text: "Texto",
-        id: "__alloyId7"
-    });
-    $.__views.__alloyId6.add($.__views.__alloyId7);
-    $.__views.__alloyId8 = Ti.UI.createTableViewRow({
-        height: "50dp",
-        id: "__alloyId8"
-    });
-    __alloyId2.push($.__views.__alloyId8);
-    $.__views.__alloyId9 = Ti.UI.createLabel({
-        text: "Texto",
-        id: "__alloyId9"
-    });
-    $.__views.__alloyId8.add($.__views.__alloyId9);
-    $.__views.__alloyId10 = Ti.UI.createTableViewRow({
-        height: "50dp",
-        id: "__alloyId10"
-    });
-    __alloyId2.push($.__views.__alloyId10);
-    $.__views.__alloyId11 = Ti.UI.createLabel({
-        text: "Texto",
-        id: "__alloyId11"
-    });
-    $.__views.__alloyId10.add($.__views.__alloyId11);
+    $.__views.__alloyId4.add($.__views.__alloyId6);
     $.__views.lista = Ti.UI.createTableView({
-        data: __alloyId2,
+        data: __alloyId3,
         id: "lista",
         layout: "vertical"
     });
-    $.__views.__alloyId1.add($.__views.lista);
+    $.__views.__alloyId2.add($.__views.lista);
     exports.destroy = function() {};
     _.extend($, $.__views);
     arguments[0] || {};
